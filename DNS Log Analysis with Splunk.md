@@ -1,6 +1,21 @@
 ### Introduction
 
-DNS (Domain Name System) logs are crucial for understanding network activity and identifying potential security threats.
-Splunk SIEM (Security Information and Event Management) provides powerful capabilities for analyzing DNS logs and detecting 
-anomalies or malicious activities.
+DNS (Domain Name System) logs are essential for understanding what’s happening on a network and spotting potential security issues. Using Splunk SIEM, these logs can be analyzed effectively to detect unusual behavior or signs of malicious activity. In this project, we focus on collecting, analyzing, and visualizing DNS logs to gain actionable insights and improve network security monitoring.
+
+### Prerequisites
+
+
+Before analyzing DNS logs in Splunk, ensure the following:
+
+- Splunk instance is installed and configured.
+
+- DNS log data.
+
+  ### Steps to Upload Sample DNS Log File to Splunk SIEM
+
+  ### 1. Prepare Sample DNS Log Files
+- Obtain sample [DNS log file](https://www.secrepo.com/maccdc2012/dns.log.gz) in a suitable format (e.g., text files).
+- Ensure the log files contain relevant DNS events, including source IP, destination IP, domain name, query type, response code, etc.
+- Save the sample log files in a directory accessible by the Splunk instance.
+
 
