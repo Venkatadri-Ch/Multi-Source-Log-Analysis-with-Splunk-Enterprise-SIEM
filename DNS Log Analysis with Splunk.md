@@ -110,6 +110,48 @@ Splunk gives you two options:
 
     <img width="939" height="428" alt="extracted fields identified 10" src="https://github.com/user-attachments/assets/65d4bc12-f78b-46f7-aa67-61bc1c44c4c2" />
 
+# Analyzing DNS Log files
+
+### 1. Identify Anomalies
+```
+index=_* OR index=* sourcetype=dnslogs  | stats count by domain
+```
+This search groups DNS queries by domain to spot unusual activity. By checking domains with very high counts or strange names, you can uncover anomalies like misconfigurations, DNS tunneling, or malware communication. It’s a quick way to detect spikes and suspicious DNS behavior in your network.
+
+<img width="935" height="407" alt="stats by count 11" src="https://github.com/user-attachments/assets/31b5df02-29b2-4be2-89a3-2b084a51b5c7" />
+
+### 2. Most quired Domain's
+
+```
+index=* sourcetype=dnslogs | top limit=10 domain
+```
+This search finds the top 10 domains that appear most often in your DNS logs. It’s a quick way to see where most of the traffic is going and to spot anything unusual or suspicious that might need a closer look.
+
+<img width="920" height="412" alt="top limit 12" src="https://github.com/user-attachments/assets/8ec11ba9-5ec9-4103-9ac7-5732d0b131e2" />
+
+### 3. Investigate Suspicious Domains
+```
+index=* sourcetype=dns_sample domain="maliciousdomain.com"
+```
+This search looks for any DNS activity related to maliciousdomain.com. It helps you check if any systems in your network have tried to reach that domain, which could indicate a possible security issue or compromise.
+
+<img width="931" height="431" alt="particular domain 13" src="https://github.com/user-attachments/assets/ce481634-7d6f-4c6e-a3e8-f17fdd6a221d" />
+
+### 4. Analyze DNS Traffic Flow
+```
+index=* sourcetype=dns_sample | table src_ip,src_port,dst_ip,dst_port
+```
+This search lists the source and destination IP addresses and ports from DNS logs. It helps you see where the traffic is coming from and where it’s going, making it easier to trace connections and identify any unusual communication patterns.
+
+<img width="923" height="401" alt="table 14" src="https://github.com/user-attachments/assets/a25d662d-fa8a-4e08-8eb1-a48489c75d1a" />
+
+## Conclusion
+
+By working through these steps, we can see how powerful Splunk is for analyzing DNS logs. Uploading logs, extracting useful fields, and running searches allows us to identify unusual activity, spot suspicious domains, and understand how DNS traffic flows across the network. These insights make it easier to detect potential security issues, investigate anomalies, and improve overall network security monitoring
+
+
+
+
     
 
    
