@@ -63,27 +63,27 @@ In this case, we’ll extract new fields from the DNS log data to easily analyze
 
  ### Steps to Extract New Fields
 
-# 1. Run a Search
+### 1. Run a Search
 
 - Go to Search & Reporting app.
 - Run a search that returns the events containing the data you want to extract fields from.
  
- # 2. Open the Fields Sidebar
+ ### 2. Open the Fields Sidebar
 
 - On the left side of the search page, expand the Fields sidebar if it’s not already open.
 
-# 3. Click “Extract New Fields”
+### 3. Click “Extract New Fields”
 
 - In the Fields section, click Extract New Fields.
 - This opens the Field Extractor (FX) tool.
 
- # 4. Select an Event
+ ### 4. Select an Event
 
 - identify an event that contains the fields you want to extract and click next.
 
   <img width="913" height="404" alt="select any event 6" src="https://github.com/user-attachments/assets/d4a18440-3a16-436b-9919-b6c17073fabc" />
 
- # 5. Choose an Extraction Method
+ ### 5. Choose an Extraction Method
 
 Splunk gives you two options:
 
@@ -93,13 +93,13 @@ Splunk gives you two options:
 
   <img width="936" height="419" alt="select regular expression 7" src="https://github.com/user-attachments/assets/9d0b8209-c8cb-4304-a281-6ce6c8a43f6d" />
 
- # 6. Define the Fields 
+ ### 6. Define the Fields 
 
  - Assign a name to each required value by double-clicking on the value and add extraction and click on next.
 
   <img width="941" height="389" alt="give name for each field 8" src="https://github.com/user-attachments/assets/0869853e-37df-4813-bdaf-d787fde5375e" />
 
- # 7. Validate and save 
+ ### 7. Validate and save 
 
  - Then validate and save the extraction, and click on "Explore the fields I just created in Search". You will then be able to see the extracted fields.
 
@@ -110,7 +110,7 @@ Splunk gives you two options:
 
     <img width="939" height="428" alt="extracted fields identified 10" src="https://github.com/user-attachments/assets/65d4bc12-f78b-46f7-aa67-61bc1c44c4c2" />
 
-# Analyzing DNS Log files
+### Analyzing DNS Log files
 
 ### 1. Identify Anomalies
 ```
