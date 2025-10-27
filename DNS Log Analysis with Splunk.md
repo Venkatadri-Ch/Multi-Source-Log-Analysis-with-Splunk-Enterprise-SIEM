@@ -39,7 +39,7 @@ I started by downloading a sample [DNS log file](https://www.secrepo.com/maccdc2
 
  - Then we will see the input settings. Keep everything as default and click Review and submit. Once the upload process is complete, click Start Searching to begin  our search.
    
-   <img width="926" height="400" alt="file uploaded 4" src="https://github.com/user-attachments/assets/62f74621-e44a-445d-9bf0-b602f8ac89a3" />
+  <img width="926" height="400" alt="file uploaded 4" src="https://github.com/user-attachments/assets/62f74621-e44a-445d-9bf0-b602f8ac89a3" />
 
 ### 5. Verify Upload
 
@@ -51,10 +51,71 @@ I started by downloading a sample [DNS log file](https://www.secrepo.com/maccdc2
   
 <img width="950" height="427" alt="logs identified 5" src="https://github.com/user-attachments/assets/1c880533-0845-43ea-93dd-8bf540e1f449" />
 
+### Extracting New Fields
+
+Extracting new fields in Splunk helps turn raw log data into useful, searchable information. It lets us:
+
+- Search more accurately by targeting specific details in your logs.
+- Build clearer reports and dashboards for better insights.
+- Connect related events across different data sources.
+
+In this case, we’ll extract new fields from the DNS log data to easily analyze query types, source IPs, and domain names.
+
+ ### Steps to Extract New Fields
+
+# 1. Run a Search
+
+- Go to Search & Reporting app.
+- Run a search that returns the events containing the data you want to extract fields from.
+ 
+ # 2. Open the Fields Sidebar
+
+- On the left side of the search page, expand the Fields sidebar if it’s not already open.
+
+# 3. Click “Extract New Fields”
+
+- In the Fields section, click Extract New Fields.
+- This opens the Field Extractor (FX) tool.
+
+ # 4. Select an Event
+
+- identify an event that contains the fields you want to extract and click next.
+
+  <img width="913" height="404" alt="select any event 6" src="https://github.com/user-attachments/assets/d4a18440-3a16-436b-9919-b6c17073fabc" />
+
+ # 5. Choose an Extraction Method
+
+Splunk gives you two options:
+
+ - Regular expression — for custom, pattern-based extraction.
+ - Delimited — for data with consistent separators (e.g., commas, pipes, tabs).
+   I choose the regular expression.
+
+  <img width="936" height="419" alt="select regular expression 7" src="https://github.com/user-attachments/assets/9d0b8209-c8cb-4304-a281-6ce6c8a43f6d" />
+
+ # 6. Define the Fields 
+
+ - Assign a name to each required value by double-clicking on the value and add extraction and click on next.
+
+  <img width="941" height="389" alt="give name for each field 8" src="https://github.com/user-attachments/assets/0869853e-37df-4813-bdaf-d787fde5375e" />
+
+ # 7. Validate and save 
+
+ - Then validate and save the extraction, and click on "Explore the fields I just created in Search". You will then be able to see the extracted fields.
+
+   <img width="943" height="421" alt="fields extracted sucessfully 9" src="https://github.com/user-attachments/assets/abc3f840-4718-4377-abca-31067352aa92" />
 
 
+  - The extracted fields have also been identified.
 
+    <img width="939" height="428" alt="extracted fields identified 10" src="https://github.com/user-attachments/assets/65d4bc12-f78b-46f7-aa67-61bc1c44c4c2" />
+
+    
 
    
 
 
+ 
+
+
+  
