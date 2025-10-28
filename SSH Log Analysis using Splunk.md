@@ -89,8 +89,39 @@ This helps identify which source IPs are repeatedly failing to log in to which s
 
  <img width="938" height="407" alt="sucessfull login 6" src="https://github.com/user-attachments/assets/1851b1b2-ff6b-4697-afc4-761ede62fdc8" />
 
- 
- 
+ This output helps identify which users or devices (source IPs) are successfully accessing which servers and how frequently.
+
+ ### 5. Detecting Suspicious Connections Without Authentication
+
+ ```
+index=loganalysis event_type="Connection Without Authentication"
+| stats count by id.orig_h
+```
+ It shows which IP addresses are making connections to the server without trying to authenticate, which could be suspicious or indicate scanning or probing activity.
+
+ <img width="929" height="409" alt="connection without authentication 7" src="https://github.com/user-attachments/assets/8ac233c1-dc65-4538-a5ed-5379d79106ae" />
+
+From the analysis of “Connection Without Authentication” events:
+- The IP addresses 10.0.0.14 and 10.0.0.18 each attempted to connect to the server 13 times without authenticating.
+- The IP addresses 10.0.0.27, 10.0.0.44, and 10.0.0.53 each made 10 such attempts.
+
+#### Created a timechart visualization to monitor such events over time:
+```
+index=loganalysis event_type="Connection Without Authentication"
+| timechart count by id.orig_h
+```
+It creates a time-based chart showing which IPs are repeatedly connecting without authenticating and when these attempts occur, making it easier to spot patterns or spikes in suspicious activity.
+
+<img width="937" height="256" alt="timechart 8" src="https://github.com/user-attachments/assets/273fa5c4-9aa8-4316-9220-9faa1f6085ab" />
+
+ At 2025-04-24 15:50:09, IPs 10.0.0.14 and 10.0.0.18 had 13 connections without authentication; 10.0.0.27, 10.0.0.44, and 10.0.0.53 had 10 each; others ranged from 8 to 9; the rest totaled 186 attempts.
+
+ ## Conclusion 
+
+Analyzing SSH log files using Splunk SIEM, I found several suspicious activities. Some IPs, like 10.0.0.30, had multiple failed login  attempts, indicating possible unauthorized access attempts. Additionally, IPs like 10.0.0.14 and 10.0.0.18 connected repeatedly without authentication, suggesting potential network scanning. These IPs should be closely monitored to maintain system security.
+
+
+
 
 
 
