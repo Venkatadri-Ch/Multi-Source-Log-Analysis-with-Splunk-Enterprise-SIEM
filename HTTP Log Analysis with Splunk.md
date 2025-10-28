@@ -13,7 +13,7 @@ In this project, we will upload sample HTTP logs into Splunk SIEM and analyze th
 Before starting the project, ensure the following:
 
 - Splunk is installed and configured.
-- HTTP log dataset.
+- [HTTP log dataset](https://www.secrepo.com/maccdc2012/http.log.gz).
 
 Note: The steps to upload the sample HTTP log to Splunk are the same as those used for the previous DNS log analysis.
 
