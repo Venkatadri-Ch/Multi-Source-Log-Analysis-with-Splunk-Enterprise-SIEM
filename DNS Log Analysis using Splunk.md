@@ -1,3 +1,4 @@
+# Analyzing DNS Logs Using Splunk SIEM
 ### Introduction
 
 DNS (Domain Name System) logs are essential for understanding what’s happening on a network and spotting potential security issues. Using Splunk SIEM, these logs can be analyzed effectively to detect unusual behavior or signs of malicious activity. In this project, we focus on collecting, analyzing, and visualizing DNS logs to gain actionable insights and improve network security monitoring.
