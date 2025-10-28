@@ -73,6 +73,26 @@ index=loganalysis event_type="Multiple Failed Authentication Attempts"
 
 This helps identify which source IPs are repeatedly failing to log in to which servers, making it easier to spot targeted attacks or suspicious activity between specific machines.
 
+<img width="934" height="392" alt="multiple failed attempts 5" src="https://github.com/user-attachments/assets/40ec5871-3ab4-466a-a318-281bb7a455ee" />
+
+- The IP 10.0.0.28 tried and failed to authenticate 5 times on the server at 10.0.1.1.
+
+- Several other IPs (like 10.0.0.11, 10.0.0.21, etc.) have made 3 failed login attempts each on different destination IPs.
+
+  ### 4. Track Successful Logins
+
+  ```
+  index=loganalysis event_type="Successful SSH Login"
+  | stats count by id.orig_h, id.resp_h
+  ```
+ It shows how many times each source IP successfully logged into each destination server.
+
+ <img width="938" height="407" alt="sucessfull login 6" src="https://github.com/user-attachments/assets/1851b1b2-ff6b-4697-afc4-761ede62fdc8" />
+
+ 
+ 
+
+
 
 
 
