@@ -9,13 +9,13 @@ Before analyzing DNS logs in Splunk, ensure the following:
 
 - Splunk instance is installed and configured.
 
-- DNS log data.
+- [DNS log dataset](https://www.secrepo.com/maccdc2012/dns.log.gz).
 
 ### Steps to Upload Sample DNS Log File to Splunk SIEM
 
   ### 1. Preparing Sample DNS Log Files
 
-I started by downloading a sample [DNS log file](https://www.secrepo.com/maccdc2012/dns.log.gz) from [SecRepo](https://www.secrepo.com/)
+I started by downloading a sample [DNS log dataset](https://www.secrepo.com/maccdc2012/dns.log.gz) from [SecRepo](https://www.secrepo.com/)
 
 
  ### 2. Uploading Log Files to Splunk
