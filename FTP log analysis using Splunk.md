@@ -186,7 +186,12 @@ I analyzed FTP file transfer activity per user on 29th October 2025 at 07:30. Th
 
 This indicates that the majority of file transfer activity during this hour was carried out by the anonymous user, with minor contributions from ftp and unidentified users. Tracking such hourly trends helps identify active users, detect unusual spikes, and monitor for potential suspicious activity.
 
+# Conclusion
 
+-  From this FTP log analysis, I got a good understanding of how users are interacting with the server—tracking login attempts and file transfers.
+-  I noticed a lot of failed logins coming from the anonymous user, which could mean someone’s trying to access the system without permission or there might be some           configuration problems.
+-  On the other hand, successful logins and file transfers helped me to see which IPs and users are actively using the server.
+- By focusing on commands like RETR and APPE, we were able to follow how frequently files are uploaded or downloaded and identify the most active IP addresses. Watching      activity over time also helped us spot any unusual or suspicious behavior. Additionally, we found certain users with multiple failed logins or unauthorized upload          attempts that should be looked into further.
 
 
   
