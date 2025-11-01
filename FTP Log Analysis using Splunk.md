@@ -1,4 +1,4 @@
-# Analyzing FTP Log Files Using Splunk SIEM
+# Analyzing FTP Logs Using Splunk SIEM
 
 ### Introduction
 
