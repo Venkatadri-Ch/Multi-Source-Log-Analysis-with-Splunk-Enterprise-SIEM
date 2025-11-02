@@ -45,6 +45,8 @@ They indicate whether a request has been successfully completed, redirected, or 
 
 <img width="951" height="422" alt="http status codes 5" src="https://github.com/user-attachments/assets/69c32611-9ad5-4a27-946d-0a3e96111f65" />
 
+Status codes 404 and 200 have higher counts compared to other codes in the logs. A 404 occurs when the requested resource is not found on the server, indicating broken links or missing files. A 200 occurs when the request is successful and the server returns the requested resource, indicating normal, successful traffic.
+
 ### 3. HTTP Status Code Analysis
 
  ```
@@ -56,6 +58,8 @@ It shows how many times each status code appeared in the logs, giving quick insi
 
 <img width="926" height="409" alt="stats for status 6" src="https://github.com/user-attachments/assets/9ea32e4e-b3ca-4d49-9e45-c606967ead49" />
 
+The results show that 404 (Not Found) and 200 (OK) occur most frequently, indicating many missing resources and normal successful requests. Other codes like 403 (Forbidden), 400 (Bad Request), and 301/302 (Redirects) appear less often, reflecting access restrictions or URL redirections. Overall, this helps understand web traffic patterns and identify potential issues like broken links or unauthorized access attempts.
+
 ### 4.Top Destination Ports Analysis
 ```
 index=* sourcetype=httplogs
@@ -64,6 +68,8 @@ index=* sourcetype=httplogs
 This is useful for network monitoring and threat detection. By checking which destination ports are being accessed most often, analysts can understand normal traffic patterns and quickly spot unusual activity.
 
 <img width="932" height="410" alt="top limit (dstport) 7" src="https://github.com/user-attachments/assets/7b790414-9a15-400d-aedc-81084f73094a" />
+
+The results show that port 80 dominates traffic, accounting for over 96% of requests, which is typical for standard HTTP traffic. Other ports like 31328, 4868, and 8080 appear much less frequently, indicating occasional alternative services or applications. This analysis helps understand network usage patterns and highlights the primary ports handling web traffic.
 
 ### 5. Detecting Anomalies in File Transfer Activity
 ```
@@ -77,6 +83,8 @@ This helps us understand normal file transfer patterns and quickly notice when s
 
 <img width="924" height="400" alt="time chart 8" src="https://github.com/user-attachments/assets/8308e8ed-b5ee-450a-9f42-601ab9989ef3" />
 
+The results show some hours with a lot of activity, like 16:30 and 20:30, while other hours have no traffic at all. These gaps could be caused by server downtime, maintenance, or logging issues.
+
 ### 6. Analyzing High Volumes of Error Responses
 ```
 index=* sourcetype=httplogs
@@ -89,6 +97,8 @@ These status codes represent client and server errors .
 If you see a high number of these errors, it could mean something is wrong  such as broken links, misconfigurations, or issues with the web server. This helps us easily identify when too many errors are happening and which types are most common.
 
 <img width="929" height="413" alt="stats count fourhundred 9" src="https://github.com/user-attachments/assets/3dcde769-f230-4dec-b979-f887078a39f7" />
+
+I have analyzed the HTTP logs to focus on client and server error responses (status codes 400 and above). The results show that 404 (Not Found) is by far the most common error, indicating many missing resources. Other notable errors include 400 (Bad Request), 403 (Forbidden), and 401 (Unauthorized), reflecting issues with client requests or access restrictions. Server-side errors like 500 and 501 are less frequent but highlight occasional server problems that may need attention.
 
 ### 7. Identifying Failed Login Attempts
 ```
