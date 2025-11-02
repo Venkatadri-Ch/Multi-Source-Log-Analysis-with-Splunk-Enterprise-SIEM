@@ -49,15 +49,15 @@ Note: id.orig_h (source IP),
 - Look in the ssh_logs for all failed SSH login attempts.
 - Count how many times each source IP (id.orig_h) tried and failed to log in.
 
-  <img width="931" height="401" alt="failed ssh logins 3" src="https://github.com/user-attachments/assets/4d91271c-dadd-45e9-94ef-ce44ba9a05ad" />
+<img width="931" height="401" alt="failed ssh logins 3" src="https://github.com/user-attachments/assets/4d91271c-dadd-45e9-94ef-ce44ba9a05ad" />
 
-  In this analysis, the IP address 10.0.0.30 had 22 failed SSH login attempts.
+- In this analysis, the IP address 10.0.0.30 had 22 failed SSH login attempts.
 
 <img width="936" height="410" alt="bar graph 4" src="https://github.com/user-attachments/assets/61d35ce9-ee52-443f-bdbc-aef46091ed16" />
 
 This chart shows the count of failed SSH login attempts from each source IP, helping to identify potential unauthorized access or attacks.
 
-  ### 3.Detecting Multiple Failed Authentication Attempts (Brute Force) 
+### 3.Detecting Multiple Failed Authentication Attempts (Brute Force) 
 
   ```
 index=loganalysis event_type="Multiple Failed Authentication Attempts"
@@ -79,17 +79,17 @@ This helps identify which source IPs are repeatedly failing to log in to which s
 
 - Several other IPs (like 10.0.0.11, 10.0.0.21, etc.) have made 3 failed login attempts each on different destination IPs.
 
-  ### 4. Track Successful Logins
+### 4. Track Successful Logins
 
   ```
   index=loganalysis event_type="Successful SSH Login"
   | stats count by id.orig_h, id.resp_h
   ```
- It shows how many times each source IP successfully logged into each destination server.
+- It shows how many times each source IP successfully logged into each destination server.
 
- <img width="938" height="407" alt="sucessfull login 6" src="https://github.com/user-attachments/assets/1851b1b2-ff6b-4697-afc4-761ede62fdc8" />
+<img width="938" height="407" alt="sucessfull login 6" src="https://github.com/user-attachments/assets/1851b1b2-ff6b-4697-afc4-761ede62fdc8" />
 
- This output helps identify which users or devices (source IPs) are successfully accessing which servers and how frequently.
+- This output helps identify which users or devices (source IPs) are successfully accessing which servers and how frequently.
 
  ### 5. Detecting Suspicious Connections Without Authentication
 
@@ -97,9 +97,9 @@ This helps identify which source IPs are repeatedly failing to log in to which s
 index=loganalysis event_type="Connection Without Authentication"
 | stats count by id.orig_h
 ```
- It shows which IP addresses are making connections to the server without trying to authenticate, which could be suspicious or indicate scanning or probing activity.
+- It shows which IP addresses are making connections to the server without trying to authenticate, which could be suspicious or indicate scanning or probing activity.
 
- <img width="929" height="409" alt="connection without authentication 7" src="https://github.com/user-attachments/assets/8ac233c1-dc65-4538-a5ed-5379d79106ae" />
+<img width="929" height="409" alt="connection without authentication 7" src="https://github.com/user-attachments/assets/8ac233c1-dc65-4538-a5ed-5379d79106ae" />
 
 From the analysis of “Connection Without Authentication” events:
 - The IP addresses 10.0.0.14 and 10.0.0.18 each attempted to connect to the server 13 times without authenticating.
