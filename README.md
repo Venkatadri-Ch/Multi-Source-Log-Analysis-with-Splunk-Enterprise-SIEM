@@ -1,7 +1,7 @@
 # Multi-Source-Log-Analysis-with-Splunk-Enterprise-SIEM
 This project uses Splunk Enterprise to analyze logs from different sources like DNS, HTTP, SSH, FTP, SMTP, Tunnel dataset's. The main goal was to find patterns, detect unusual activity, and visualize useful security insights.
 
-# Projects
+# Log Analyses
 
 1-<a href="https://github.com/Venkatadri-Ch/Multi-Source-Log-Analysis-with-Splunk-Enterprise-SIEM/blob/main/DNS%20Log%20Analysis%20using%20Splunk.md">
 DNS Log Analysis Using Splunk
