@@ -110,5 +110,42 @@ It then uses the stats command to count the number of Teredo tunnel events gener
 
 The top three source IPs initiating Teredo tunnels were 192.168.202.110, 192.168.202.140, and 192.168.200.138, generating 134, 118, and 98 events respectively. The activity appears balanced across these hosts, indicating normal usage of Teredo tunnels with no single system exhibiting unusually high or suspicious activity.
 
+### 6. Analyzing Top 10 Destination IPs Receiving Teredo Tunnel Connections
+```
+index=log_analysis sourcetype=tunnel tunnel_type="Tunnel::TEREDO"
+| stats count by dst_ip
+| sort -count
+| head 10
+```
+- This query searches the tunnel logs in the log_analysis index for Teredo tunnel events. It then:
+- Uses stats count by dst_ip to count the number of Teredo tunnel events received by each destination IP.
+- Sorts the results in descending order of count (sort -count).
+- Displays the top 10 most contacted destination IPs using the Teredo protocol (head 10).
+
+<img width="936" height="438" alt="Top Destination IPs 7" src="https://github.com/user-attachments/assets/00afcabf-d446-465f-adcc-abb9dd2c9aa7" />
+
+The analysis shows that Teredo tunnel events were evenly distributed across the top 10 destination IPs, with each host receiving 6 events. This uniform distribution indicates that Teredo tunnels were not concentrated on any single endpoint, suggesting normal, controlled usage rather than targeted or suspicious activity. Overall, the communication pattern appears balanced across multiple destination hosts.
+
+### 7. Anomaly Detection in Hourly Teredo Tunnel Events
+```
+index=log_analysis sourcetype=tunnel tunnel_type="Tunnel::TEREDO"
+| timechart span=1h count by event_type
+| anomalydetection
+```
+- index=log_analysis sourcetype=tunnel tunnel_type="Tunnel::TEREDO" – searches the tunnel logs for Teredo events.
+
+- | timechart span=1h count by event_type – creates an hourly chart of event counts by type (DISCOVER, CLOSE) to show trends over time.
+
+- | anomalydetection – detects unusual spikes or drops in events, highlighting potential anomalies for security analysis.
+
+<img width="936" height="287" alt="anamoly detection 8" src="https://github.com/user-attachments/assets/e15613d6-5704-45d9-955b-a2dda484eea2" />
+
+At 14:30 on 2025-10-29, Teredo tunnel events spiked to 140 for both DISCOVER and CLOSE, triggering an anomaly alert. The spike was primarily linked to tunnel closures, but all tunnels were properly terminated, indicating controlled but unusual activity.
+
+# Conclusion 
+
+In this project, we analyzed Teredo tunnel activity using Zeek IDS logs in Splunk. We found that tunnels were generally short-lived, properly started and closed, and spread across several source and destination IPs. Looking at the data over time, we saw occasional spikes, which anomaly detection flagged as unusual but not harmful. Tracking the source and destination IPs helped pinpoint the most active hosts and endpoints.
+
+
 
 
